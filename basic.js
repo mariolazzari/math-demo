@@ -1,5 +1,5 @@
 //mathjs.org/examples/browser/basic_usage.html.html
-https: const math = require("mathjs");
+const math = require("mathjs");
 
 function print(value) {
   const precision = 14;

@@ -1,5 +1,9 @@
 const basic = require("./basic");
 const units = require("./units");
 
-basic.runDemo();
-units.runDemo();
+try {
+  basic.runDemo();
+  units.runDemo();
+} catch (ex) {
+  console.log("ERROR:", ex.message);
+}
