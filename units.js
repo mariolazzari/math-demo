@@ -1,17 +1,42 @@
 //mathjs.org/examples/units.js.html
 const math = require("mathjs");
 
-const runDemo = () => {
-  console.log("\nUNITS demo:");
+/**
+ * Helper function to format an output a value.
+ * @param {*} value
+ * @return {string} Returns the formatted value
+ */
+function format(value, precision = 14) {
+  return math.format(value, precision);
+}
 
-  // units can be created by providing a value and unit name, or by providing
-  // a string with a valued unit.
-  console.log("create units");
+/**
+ * Helper function to output a value in the console. Value will be formatted.
+ * @param {*} value
+ */
+function print(value) {
+  console.log(format(value));
+}
+
+/**
+ * Unit of measure demo
+ */
+const runDemo = () => {
+  console.log("\n\n===========");
+  console.log("UNITS DEMO:");
+  console.log("===========\n\n");
+
+  // units can be created by providing a value and unit name, or by providing a string with a valued unit.
+  console.log("a) create units");
   const a = math.unit(45, "cm");
   const b = math.unit("0.1m");
+  const x = math.unit("10 m");
+
   print(a); // 45 cm
+  console.log(a);
+
   print(b); // 0.1 m
-  console.log();
+  console.log(b);
 
   // units can be added, subtracted, and multiplied or divided by numbers and by other units
   console.log("perform operations");
@@ -28,6 +53,11 @@ const runDemo = () => {
   print(b.toNumber("cm")); // 10
   print(math.number(b, "cm")); // 10
   console.log();
+
+  // unit type
+  console.log("Unit type");
+  let unitType = math.unit("25deg");
+  //console.log("unit type (angle):", unitType.units[0]);
 
   // the expression parser supports units too
   console.log("parse expressions");
@@ -92,23 +122,5 @@ const runDemo = () => {
   console.log("q (particle charge) = " + format(q)); // 1 C
   console.log("F (force) = q (v cross B) = " + format(F)); // [0 N, 0 N, -1 N]
 };
-
-/**
- * Helper function to output a value in the console. Value will be formatted.
- * @param {*} value
- */
-function print(value) {
-  console.log(format(value));
-}
-
-/**
- * Helper function to format an output a value.
- * @param {*} value
- * @return {string} Returns the formatted value
- */
-function format(value) {
-  const precision = 14;
-  return math.format(value, precision);
-}
 
 module.exports = { runDemo };

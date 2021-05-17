@@ -8,7 +8,9 @@ function print(value) {
 
 // demo
 const runDemo = () => {
-  console.log("\nBASIC demo:");
+  console.log("\n\n\n=======");
+  console.log("BASIC demo:");
+  console.log("=======\n\n\n");
 
   // functions and constants
   print(math.round(math.e, 3)); // 2.718
